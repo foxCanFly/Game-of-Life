@@ -1,0 +1,10 @@
+@import '../../node_modules/reset-css/reset.css';
+
+@import './styles/_page.css';
+@import './styles/_cube.css';
+@import './styles/_controls.css';
+
+
+html, body {
+  height: 100%;
+}

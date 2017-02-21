@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+  head
+    title= 'Life in cube'
+
+    link(rel="stylesheet", href=('dist/application.bundle.css'))
+
+  body
+    #stats
+
+    .page
+      .page__body
+        .cube
+          .cube-space.cube-space--front
+          .cube-space.cube-space--right
+          .cube-space.cube-space--bottom
+          .cube-space.cube-space--left
+          .cube-space.cube-space--top
+          .cube-space.cube-space--back
+
+      .page__footer
+        .controls
+          a(href="#" class='controls__item controls__item--slower')
+            img(src='public/slower.svg' class='controls-icon')
+          a(href='#' class='controls__item controls__item--start')
+            img(src='public/play.svg' class='controls-icon')
+          a(href='#' class='controls__item controls__item--continue')
+            img(src='public/play.svg' class='controls-icon')
+          a(href='#' class='controls__item controls__item--pause')
+            img(src='public/pause.svg' class='controls-icon')
+          a(href='#' class='controls__item controls__item--stop')
+            img(src='public/stop.svg' class='controls-icon')
+          a(href='#' class='controls__item controls__item--faster')
+            img(src='public/faster.svg' class='controls-icon')
+
+    script(type="text/javascript", src='dist/application.bundle.js')

@@ -1,0 +1,14 @@
+.page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page__body {
+  flex-grow: 1;
+}
+
+.page__footer {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}

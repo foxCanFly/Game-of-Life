@@ -1,0 +1,24 @@
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls__item {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
+
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.controls__item--start, .controls__item--continue, .controls__item--pause {
+  width: 70px;  
+  height: 70px;
+}
+
+.controls__item--pause, .controls__item--continue {
+  display: none;
+}
