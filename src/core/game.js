@@ -1,6 +1,6 @@
-export default class LifeCore {
-  constructor(root) {
-    this.root = root;
+export default class Game {
+  constructor(options) {
+    this.options = options;
   }
 
   start() {

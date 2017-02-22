@@ -10,22 +10,28 @@ module.exports = {
   },
 
   module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader'
-    },
-    {
-      test: /\.(scss|css)$/,
-      loader: ExtractTextPlugin.extract(
-          'style?sourceMap',
-          'css?',
-          'resolve-url'
-        )
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.(scss|css)$/,
+        exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
+      }]
   },
 
   plugins: [
-    new ExtractTextPlugin('application.bundle.css', { allChunks: true })
+    new ExtractTextPlugin({
+      filename: 'application.bundle.css',
+      allChunks: true
+    })
   ]
 };

@@ -2,6 +2,6 @@ require('babel-polyfill');
 require('babel-register');
 require('source-map-support/register');
 
-const life = require('./src/life');
+const server = require('./src/server');
 
-life();
+server();

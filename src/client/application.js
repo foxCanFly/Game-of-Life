@@ -2,17 +2,18 @@ require('babel-polyfill');
 
 import $ from 'jquery';
 
-import Life from '../core/lifeCore';
+import Game from '../core/loadGame';
 import './application.css';
 
-(() => {
-  const life = new Life('.cube', { edgeSize: 3 });
-  window.life = life;
 
-  addEventListeners(life);
+(() => {
+  const game = new Game('.cube', { edgeSize: 3 });
+  window.game = game;
+
+  addEventListeners(game);
 })();
 
-function addEventListeners(life) {
+function addEventListeners(game) {
   const $start = $('.controls__item--start');
   const $stop = $('.controls__item--stop');
   const $pause = $('.controls__item--pause');
@@ -23,33 +24,33 @@ function addEventListeners(life) {
   $start.on('click', () => {
     $start.hide();
     $pause.show();
-    life.start();
+    game.start();
   });
 
   $stop.on('click', () => {
     $continue.hide();
     $pause.hide();
     $start.show();
-    life.stop();
+    game.stop();
   });
 
   $pause.on('click', () => {
     $continue.show();
     $pause.hide();
-    life.pause();
+    game.pause();
   });
 
   $continue.on('click', () => {
     $continue.hide();
     $pause.show();
-    life.resume();
+    game.resume();
   });
 
   $faster.on('click', () => {
-    life.makeFaster();
+    game.makeFaster();
   });
 
   $slower.on('click', () => {
-    life.makeSlower();
+    game.makeSlower();
   });
 }

@@ -29,14 +29,14 @@ export default async function () {
     app.use(rootRouter.routes());
 
     app.on('error', (error, context) => {
-      log.error(`error processing ${context.method} ${context.url}: `, error);
+      log.error(`Error processing ${context.method} ${context.url}: `, error);
     });
 
     app.listen(port);
 
-    log.info(`Life is started up on port: ${port}`);
+    log.info(`Game "Life" is started up on port: ${port}`);
   } catch (error) {
-    log.error('Life is started up with error: ', error);
+    log.error('Game "Life" is started up with error: ', error);
   }
 }
 
@@ -51,7 +51,7 @@ function errorHandler() {
       };
 
       if (context.status === 500) {
-        log.error(`request processing error ${context.request.originalUrl}: `, e);
+        log.error(`Request processing error ${context.request.originalUrl}: `, e);
       }
     }
   };
