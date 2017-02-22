@@ -3,14 +3,13 @@ import $ from 'jquery';
 import Game from './game';
 
 
-export default function loadGame(rootNode = '.cube', innerOptions = {}) {
-  const $root = $(rootNode);
-  const processOptions = Object.assign({}, {
+export default function loadGame(rootNode, innerOptions = {}) {
+  const gameOptions = Object.assign({
+    rootNode: '.cube',
     edgeSize: 5,
-    interval: 2000
   }, innerOptions);
 
-  console.log($root);
+  gameOptions.root = $(gameOptions.rootNode);
 
-  return new Game(processOptions);
+  return new Game(gameOptions);
 }
