@@ -24,7 +24,7 @@ export default function loadGame(rootNode, innerOptions = {}) {
 
 class Game {
   constructor(options) {
-    this.ui = loadUi();
+    this.ui = loadUi(options);
     this.engine = loadEngine();
     this.process = loadProcess(options, synchronize);
   }
