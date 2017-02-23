@@ -31,6 +31,7 @@ class Game {
 
   next() {
     this.sections.forEach(section => section.next());
+    this.sections.forEach(section => section.update());
   }
 
   start() {

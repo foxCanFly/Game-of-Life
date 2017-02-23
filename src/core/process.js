@@ -1,6 +1,6 @@
 export default function loadProcess(innerOptions, cb) {
   const processOptions = Object.assign({
-    interval: 2000
+    interval: 1000
   }, innerOptions);
 
   if (cb && typeof cb === 'function') {
@@ -30,10 +30,10 @@ class Process {
     this.start();
   }
 
-  changeInterval(type, delta = 250) {
+  changeInterval(type, delta = 500) {
     if (type === 'incr') {
       this.interval += delta;
-    } else if (type === 'decr') {
+    } else if (type === 'decr' && this.interval > 0) {
       this.interval -= delta;
     }
 

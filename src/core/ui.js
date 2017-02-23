@@ -62,7 +62,6 @@ export default function loadUi(innerOptions) {
   }
 
   function mouseHandlers($root) {
-
     function handleMark(event) {
       const target = event.target;
 

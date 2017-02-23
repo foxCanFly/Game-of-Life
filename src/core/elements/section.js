@@ -6,8 +6,9 @@ import Cell from './cell';
 export default class Section {
   constructor(options) {
     this.name = options.name;
-    this.edgeSize = options.edgeSize;
     this.$root = $(options.nodeSelector);
+    this.edgeSize = options.edgeSize;
+    this.expandedEdgeSize = options.expandedEdgeSize;
 
     this.originalCells = initCells(this.$root, this.edgeSize);
     this.expandedCells = [];
@@ -36,8 +37,12 @@ export default class Section {
     this.expandedCells.forEach((cell, index) => {
       if (!this.originalCells.includes(cell)) return;
 
-      cell.next(around(this.expandedCells, index, this.edgeSize));
+      cell.next(around(this.expandedCells, index, this.expandedEdgeSize));
     });
+  }
+
+  update() {
+    this.originalCells.forEach(cell => cell.update());
   }
 
   clear() {

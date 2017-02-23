@@ -12,6 +12,7 @@ export default function initSections(innerOptions) {
     const sectionOptions = {
       name,
       edgeSize,
+      expandedEdgeSize: edgeSize + 2,
       nodeSelector
     };
 
