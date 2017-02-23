@@ -2,7 +2,7 @@ require('babel-polyfill');
 
 import $ from 'jquery';
 
-import Game from '../core/loadGame';
+import Game from '../core/game';
 import './application.css';
 
 

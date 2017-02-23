@@ -1,9 +1,34 @@
+import $ from 'jquery';
+
 import loadProcess from './process';
+import loadUi from './ui';
+import loadEngine from './engine';
+import initSections from './elements/initSections';
+import linkSections from './elements/linkSections';
 
 
-export default class Game {
+export default function loadGame(rootNode, innerOptions = {}) {
+  const gameOptions = Object.assign({
+    rootNode: '.cube',
+    edgeSize: 5,
+  }, innerOptions);
+
+  gameOptions.$root = $(gameOptions.rootNode);
+  gameOptions.sections = initSections(gameOptions);
+
+  linkSections(gameOptions.sections);
+
+  return new Game(gameOptions);
+}
+
+
+class Game {
   constructor(options) {
+    this.ui = loadUi();
+    this.engine = loadEngine();
     this.process = loadProcess(options, synchronize);
+
+    console.log(options.sections);
   }
 
   start() {
