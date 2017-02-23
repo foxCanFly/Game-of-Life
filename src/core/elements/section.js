@@ -39,6 +39,10 @@ export default class Section {
       cell.next(around(this.expandedCells, index, this.edgeSize));
     });
   }
+
+  clear() {
+    this.originalCells.forEach(cell => cell.deactivate());
+  }
 }
 
 function around(cells, index, edgeSize) {

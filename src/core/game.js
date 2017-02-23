@@ -34,32 +34,39 @@ class Game {
   }
 
   start() {
-    console.log('start');
+    console.log('starting...');
+
     this.process.start();
   }
 
   stop() {
-    console.log('stop');
+    console.log('stopping...');
+
+    this.sections.forEach(section => section.clear());
     this.process.stop();
   }
 
   pause() {
-    console.log('pause');
+    console.log('pausing...');
+
     this.process.stop();
   }
 
   resume() {
-    console.log('resume');
+    console.log('resuming...');
+
     this.process.start();
   }
 
   makeFaster(delta) {
-    console.log('faster');
+    console.log('faster...');
+
     this.process.changeInterval('decr', delta);
   }
 
   makeSlower(delta) {
-    console.log('slower');
+    console.log('slower...');
+
     this.process.changeInterval('incr', delta);
   }
 }

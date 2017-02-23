@@ -3,7 +3,6 @@ export default class Cell {
     this.$root = $root;
     this.node = $root[0];
     this.isActive = false;
-    this.age = 0;
   }
 
   next(cells) {
@@ -28,6 +27,12 @@ export default class Cell {
     } else {
       this.$root.css('background-color', 'initial');
     }
+  }
+
+  deactivate() {
+    this.isActive = false;
+
+    this.handleColor();
   }
 }
 
