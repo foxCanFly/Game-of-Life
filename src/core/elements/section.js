@@ -9,10 +9,29 @@ export default class Section {
     this.edgeSize = options.edgeSize;
     this.$root = $(options.nodeSelector);
 
-    this.cells = initCells(this.$root, this.edgeSize);
+    this.originalCells = initCells(this.$root, this.edgeSize);
+    this.expandedCells = [];
   }
 
-  populate() {}
+  populate(edges) {
+    const { top, right, bottom, left } = edges;
+
+    this.expandedCells.push(null, ...top, null);
+
+    for (let indexY = 0; indexY < this.edgeSize; indexY++) {
+      this.expandedCells.push(left[indexY]);
+
+      for (let indexX = 0; indexX < this.edgeSize; indexX++) {
+        const position = (indexY * this.edgeSize) + indexX;
+        this.expandedCells.push(this.originalCells[position]);
+      }
+
+      this.expandedCells.push(right[indexY]);
+    }
+
+    this.expandedCells.push(null, ...bottom, null);
+  }
+
   next() {}
 }
 

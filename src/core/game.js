@@ -27,8 +27,6 @@ class Game {
     this.ui = loadUi();
     this.engine = loadEngine();
     this.process = loadProcess(options, synchronize);
-
-    console.log(options.sections);
   }
 
   start() {
