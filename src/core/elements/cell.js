@@ -6,8 +6,14 @@ export default class Cell {
     this.age = 0;
   }
 
-  next(neighbors) {
-    console.log(neighbors);
+  next(cells) {
+    const aliveCellsCount = getAliveCellsCount(cells);
+
+    if (this.isActive && !(aliveCellsCount === 2 || aliveCellsCount === 3)) {
+      this.toggle();
+    } else if (!this.isActive && aliveCellsCount === 3) {
+      this.toggle();
+    }
   }
 
   toggle() {
@@ -18,9 +24,21 @@ export default class Cell {
 
   handleColor() {
     if (this.isActive) {
-      this.$root.css('background-color', 'black');
-    } else {
       this.$root.css('background-color', 'white');
+    } else {
+      this.$root.css('background-color', 'initial');
     }
   }
+}
+
+function getAliveCellsCount(cells) {
+  const arr = cells.filter(cell => {
+    if (!cell) {
+      return !!Math.round(Math.random());
+    }
+
+    return cell.isActive;
+  });
+
+  return arr.length;
 }

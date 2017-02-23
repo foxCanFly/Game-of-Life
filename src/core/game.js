@@ -63,7 +63,3 @@ class Game {
     this.process.changeInterval('incr', delta);
   }
 }
-
-function synchronize(sections) {
-  sections.forEach(section => section.next);
-}

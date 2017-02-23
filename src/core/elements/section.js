@@ -61,7 +61,7 @@ function initCells($root, count) {
   const cells = [];
 
   for (let i = 0; i < Math.pow(count, 2); i++) {
-    const $node = $(`<span style='flex-basis: ${100 / count}%'>${i}</span>`);
+    const $node = $(`<span style='flex-basis: ${100 / count}%' />`);
     const cell = new Cell($node);
 
     $node[0].getCell = cell;
