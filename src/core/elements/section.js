@@ -32,8 +32,30 @@ export default class Section {
     this.expandedCells.push(null, ...bottom, null);
   }
 
-  next() {}
+  next() {
+    this.expandedCells.forEach((cell, index) => {
+      if (!this.originalCells.includes(cell)) return;
+
+      cell.next(around(this.expandedCells, index, this.edgeSize));
+    });
+  }
 }
+
+function around(cells, index, edgeSize) {
+  const positions = [
+    [index - 1],
+    [index + 1],
+    [index - edgeSize],
+    [index + edgeSize],
+    [index + (edgeSize + 1)],
+    [index + (edgeSize - 1)],
+    [index - (edgeSize - 1)],
+    [index - (edgeSize + 1)]
+  ];
+
+  return positions.map(position => cells[position]);
+}
+
 
 function initCells($root, count) {
   const cells = [];

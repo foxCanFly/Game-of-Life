@@ -2,7 +2,6 @@ import $ from 'jquery';
 
 import loadProcess from './process';
 import loadUi from './ui';
-import loadEngine from './engine';
 import initSections from './elements/initSections';
 import linkSections from './elements/linkSections';
 
@@ -24,9 +23,14 @@ export default function loadGame(rootNode, innerOptions = {}) {
 
 class Game {
   constructor(options) {
+    this.sections = options.sections;
+
     this.ui = loadUi(options);
-    this.engine = loadEngine();
-    this.process = loadProcess(options, synchronize);
+    this.process = loadProcess(options, this.next.bind(this));
+  }
+
+  next() {
+    this.sections.forEach(section => section.next());
   }
 
   start() {
@@ -60,6 +64,6 @@ class Game {
   }
 }
 
-function synchronize() {
-  console.log('lol');
+function synchronize(sections) {
+  sections.forEach(section => section.next);
 }

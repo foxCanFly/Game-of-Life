@@ -6,7 +6,9 @@ export default class Cell {
     this.age = 0;
   }
 
-  next() {}
+  next(neighbors) {
+    console.log(neighbors);
+  }
 
   toggle() {
     this.isActive = !this.isActive;
