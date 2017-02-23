@@ -12,10 +12,18 @@
 
   border-radius: 50%;
   overflow: hidden;
+
+  vertical-align: middle;
+  text-align: center;
+}
+
+.controls__item:hover .controls-icon {
+  width: 97%;
+  height: 97%;
 }
 
 .controls__item--start, .controls__item--continue, .controls__item--pause {
-  width: 70px;  
+  width: 70px;
   height: 70px;
 }
 
