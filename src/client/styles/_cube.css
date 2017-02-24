@@ -16,11 +16,11 @@
   left: 50%;
   position: absolute;
 
-  will-change: transform;
-  transition: all 0.3s linear;
+  transition: transform 0.3s linear;
   transform-style: preserve-3d;
   /*transform-origin: 50% 50%;*/
   transform: perspective(1500px) rotateX(-20deg) rotateY(30deg);
+  will-change: transform;
   /*animation: rotating 60s linear infinite;*/
 }
 

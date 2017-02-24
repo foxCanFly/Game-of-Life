@@ -25,8 +25,8 @@ class Game {
   constructor(options) {
     this.sections = options.sections;
 
-    this.ui = loadUi(options);
     this.process = loadProcess(options, this.next.bind(this));
+    this.ui = loadUi(options);
   }
 
   next() {

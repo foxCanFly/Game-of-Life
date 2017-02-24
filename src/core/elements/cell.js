@@ -4,6 +4,7 @@ export default class Cell {
     this.node = $root[0];
     this.isActive = false;
     this.willBeActive = false;
+    this.wasActive = false;
   }
 
   next(cells) {
@@ -17,11 +18,14 @@ export default class Cell {
   }
 
   update() {
+    this.wasActive = this.isActive;
     this.isActive = this.willBeActive;
+
     this.handleColor();
   }
 
   toggle() {
+    this.wasActive = this.isActive;
     this.isActive = !this.isActive;
     this.willBeActive = this.isActive;
 
@@ -29,11 +33,13 @@ export default class Cell {
   }
 
   handleColor() {
-    if (this.isActive) {
-      return this.$root.css('background-color', 'white');
-    }
+    if (this.wasActive === this.isActive) return;
 
-    return this.$root.css('background-color', 'initial');
+    if (this.isActive) {
+      this.$root.css('background-color', 'white');
+    } else {
+      this.$root.css('background-color', 'initial');
+    }
   }
 
   deactivate() {
