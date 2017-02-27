@@ -1,6 +1,6 @@
 # Game of Life / 3d playground
 
-<i> One more implementation of a well-known game "Life".
+<i> One more implementation of a well-known game "Life". </i>
 <br> (without Canvas or WebGL)
 
 ### Introduction
@@ -15,6 +15,6 @@ This implementation of "Life" covers following features:
 ### Development
 
 ```sh
-    npm install
-    npm run watch
+npm install
+npm run watch
 ```
