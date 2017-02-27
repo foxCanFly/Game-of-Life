@@ -14,15 +14,29 @@ class Process {
   constructor({ interval, callback }) {
     this.interval = interval;
     this.callback = callback;
+    this.paused = false;
   }
 
   start() {
-    this.process = setInterval(this.callback, this.interval);
+    this.processId = setInterval(this.callback, this.interval);
   }
 
   stop() {
-    clearInterval(this.process);
-    this.process = null;
+    clearInterval(this.processId);
+    this.processId = null;
+  }
+
+  pause() {
+    if (this.processId) {
+      this.paused = true;
+      this.stop();
+    }
+  }
+
+  resume() {
+    if (this.paused) {
+      this.start();
+    }
   }
 
   restart() {
@@ -37,7 +51,7 @@ class Process {
       this.interval -= delta;
     }
 
-    if (this.process) {
+    if (this.processId) {
       this.restart();
     }
   }

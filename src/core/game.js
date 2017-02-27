@@ -26,7 +26,7 @@ class Game {
     this.sections = options.sections;
 
     this.process = loadProcess(options, this.next.bind(this));
-    this.ui = loadUi(options);
+    this.ui = loadUi(options, this.process);
   }
 
   next() {

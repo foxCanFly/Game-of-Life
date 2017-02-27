@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 
-export default function loadUi(innerOptions) {
+export default function loadUi(innerOptions, process) {
   const $root = innerOptions.$root;
   const $window = $(window);
 
@@ -35,12 +35,18 @@ export default function loadUi(innerOptions) {
     const mouse = mouseHandlers($root);
 
     $window.on('keydown', event => {
+      process.pause();
+
       const change = keyDownHandler(event);
       Object.assign(deltaPosition, change);
     });
 
-    $root.on('mousedown', mouse.down);
-    $root.on('mouseup', mouse.up);
+    $window.on('keyup', event => {
+      process.resume();
+    });
+
+    $window.on('mousedown', mouse.down);
+    $window.on('mouseup', mouse.up);
   }
 
   rotate();
