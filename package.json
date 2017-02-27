@@ -15,6 +15,7 @@
     "babel-preset-es2016": "^6.16.0",
     "babel-preset-es2017": "^6.16.0",
     "babel-register": "^6.16.3",
+    "concurrently": "^3.1.0",
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.2.0",
     "koa-convert": "^1.2.0",
@@ -42,6 +43,7 @@
     "webpack": "^2.2.0"
   },
   "scripts": {
+    "watch": "concurrently --kill-others \"./node_modules/webpack/bin/webpack.js --debug --watch\" \"nodemon ./life.js\"",
     "server:watch": "nodemon ./life.js",
     "webpack:watch": "webpack --watch",
     "start": "node ./life.js"
