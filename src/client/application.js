@@ -7,7 +7,7 @@ import './application.css';
 
 
 (() => {
-  const game = new Game('.cube', { edgeSize: 10 });
+  const game = new Game('.cube', { edgeSize: 20 });
   window.game = game;
 
   addEventListeners(game);

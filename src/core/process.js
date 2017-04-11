@@ -44,7 +44,7 @@ class Process {
     this.start();
   }
 
-  changeInterval(type, delta = 500) {
+  changeInterval(type, delta = 200) {
     if (type === 'incr') {
       this.interval += delta;
     } else if (type === 'decr' && this.interval > 0) {

@@ -36,17 +36,16 @@ export default class Cell {
     if (this.wasActive === this.isActive) return;
 
     if (this.isActive) {
-      this.$root.css('background-color', 'white');
+      this.$root.css('background-color', 'rgba(255, 0, 0, 0.8)');
     } else {
-      this.$root.css('background-color', 'initial');
+      this.$root.css('background-color', 'rgba(0, 0, 0, 0.8)');
     }
   }
 
   deactivate() {
-    this.isActive = false;
-    this.willBeActive = false;
-
-    this.handleColor();
+    if (this.isActive) {
+      this.toggle();
+    }
   }
 }
 
