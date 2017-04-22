@@ -30,6 +30,12 @@ class Game {
   }
 
   next() {
+    // @TODO: update render algoritm to highly increase performance.
+    // mb each cell should return its updated html and each section should re-render itself entirely
+    // but in this case we are losing ability to update cells after initial start so for example
+    // we can provide two game states: for editing to control out cells state manually
+    // and for playing with much better perfomance
+
     this.sections.forEach(section => section.next());
     this.sections.forEach(section => section.update());
   }
